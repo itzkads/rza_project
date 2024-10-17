@@ -1,51 +1,67 @@
 ﻿@inherits LayoutComponentBase
 
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
-    <style>
-        main{
-        font-family: arial, futura;
+<style>
+    main {
+        font-family: Arial, Futura;
         font-size: 20px;
         color: darkslategrey;
         background-color: pink;
         text-align: center;
+    }
+
+    .top {
+        font: Arial;
+        color: red;
+        background-color: red;
+        padding: 10px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .search-bar {
+        margin-left: 120px;
+        padding: 5px;
+    }
+
+    .top-row a {
+        margin: 0 15px;
+        color: red;
+        text-decoration: none;
+        justify-content: flex-start;
+    }
+
+        .top-row a:hover {
+            text-decoration: underline;
         }
-        
-        header{}
 
-        h2{}
-        .top {
-            font: Arial;
-            color: red;
-            background-color: red;
-        }
+    .login-button, .basket-button {
+        margin-left: 15px;
+        background-color: white;
+        color: red;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+</style>
 
-
-
-
-
-
-
-
-    </style>
-    <main>
-        <div class="top-row px-4 top">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
-            </div>
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
-</div>
+<main>
+    <div class="top-row px-4 top">
+        <a href="">Home</a>
+        <a href="/hotel">Hotel</a>
+        <a href="/experience">Experience</a>
+        <a href="/zoo">Zoo</a>
+        <a href="/contact">Contact Us</a>
+        <a href="/education">Education</a>
+        <input type="text" class="search-bar" placeholder="Search..." />
+        <a href="/login" class="login-button">Login</a>
+        <a href="/basket" class="basket-button">Basket</a>
+       
+    </div>
+    <article class="content px-4">
+        @Body
+    </article>
+</main>
 
 <div id="blazor-error-ui">
     An unhandled error has occurred.

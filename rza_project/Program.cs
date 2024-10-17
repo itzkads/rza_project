@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using rza_project.Components;
 using rza_project.Models;
+using rza_project.Services;
 
 namespace rza_project
 {
@@ -17,6 +18,7 @@ namespace rza_project
             options.UseMySql(builder.Configuration.GetConnectionString("MySqlConnection"),
             new MySqlServerVersion(new Version(8, 0, 29))));
 
+            builder.Services.AddScoped<CustomerService>();
 
             var app = builder.Build();
 

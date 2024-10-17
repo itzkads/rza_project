@@ -1,0 +1,111 @@
+﻿@page "/contact"
+
+<title>RZA - Contact Us</title>
+
+<div class="contact-container">
+    <h2>Contact us:</h2>
+
+    <form onsubmit="return validateForm()">
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Enter your email" />
+        </div>
+
+        <div class="form-group">
+            <label for="enquiry">Enquiry:</label>
+            <textarea id="enquiry" placeholder="Enter your enquiry"></textarea>
+        </div>
+
+        <button type="submit" class="submit-button">Submit</button>
+    </form>
+
+    <p id="error-message" style="color: red;"></p>
+</div>
+
+<style>
+    .contact-container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: lightgray;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+        color: darkgreen;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    input[type="email"], textarea {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        box-sizing: border-box;
+    }
+
+    textarea {
+        height: 150px;
+    }
+
+    .submit-button {
+        background-color: green;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+    }
+
+        .submit-button:hover {
+            background-color: darkgreen;
+        }
+</style>
+
+<script>
+    function validateForm() {
+        const email = document.getElementById('email').value;
+        const enquiry = document.getElementById('enquiry').value;
+        const errorMessage = document.getElementById('error-message');
+
+        errorMessage.textContent = '';
+
+        if (!email) {
+            errorMessage.textContent = 'Email is required.';
+            return false;
+        }
+
+        if (!validateEmail(email)) {
+            errorMessage.textContent = 'Please enter a valid email address.';
+            return false;
+        }
+
+        if (!enquiry) {
+            errorMessage.textContent = 'Enquiry cannot be empty.';
+            return false;
+        }
+
+        // Submit form or send data to the server here
+        alert('Enquiry submitted successfully!');
+        return true;
+    }
+</script>
+
+@code {
+
+}
+

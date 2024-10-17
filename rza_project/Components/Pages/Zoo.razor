@@ -1,0 +1,89 @@
+﻿@page "/zoo"
+
+<title>RZA - Experience</title>
+
+<div class="experience-container">
+    <!-- Lemur Experience -->
+    <div class="experience-item">
+        <a href="/experience-lemur">
+            <img src="lemur.jpg" alt="Lemur Experience" class="experience-image" />
+            <div class="overlay">Lemur Experience</div>
+        </a>
+        <p>Description: Meet the lemurs up close and learn about their habitat. Add tickets to your cart, select the day and time to join this unique experience.</p>
+    </div>
+
+    <!-- Tiger Experience -->
+    <div class="experience-item">
+        <a href="/experience-tiger">
+            <img src="tiger.jpg" alt="Tiger Experience" class="experience-image" />
+            <div class="overlay">Tiger Experience</div>
+        </a>
+        <p>Description: Get to know the magnificent tigers, their behavior, and conservation efforts. Add tickets to your cart, select the day and time for an unforgettable adventure.</p>
+    </div>
+
+    <!-- Giraffe Experience -->
+    <div class="experience-item">
+        <a href="/experience-giraffe">
+            <img src="giraffe.jpg" alt="Giraffe Experience" class="experience-image" />
+            <div class="overlay">Giraffe Experience</div>
+        </a>
+        <p>Description: Discover the tallest animals on earth and feed the giraffes! Add tickets to your cart, select the day and time for this amazing experience.</p>
+    </div>
+</div>
+
+<style>
+    .experience-container {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px auto;
+        max-width: 1200px;
+    }
+
+    .experience-item {
+        position: relative;
+        width: 30%;
+        text-align: center;
+    }
+
+        .experience-item img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .experience-item:hover img {
+            transform: scale(1.1);
+        }
+
+    .overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+        text-align: center;
+        padding: 10px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .experience-item:hover .overlay {
+        opacity: 1;
+    }
+
+    .experience-item a {
+        text-decoration: none;
+        color: white;
+    }
+
+    p {
+        margin-top: 10px;
+        color: darkslategrey;
+    }
+</style>
+
+
+@code {
+
+}

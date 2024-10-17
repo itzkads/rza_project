@@ -1,0 +1,35 @@
+﻿@page "/tr"
+@using rza_project.Services
+@using rza_project.Models
+@inject CustomerService CustomerService
+@rendermode InteractiveServer
+<div>
+    <label>Username</label>
+    <input>
+</div>
+<div>
+    <label>Password</label>
+    <input>
+</div>
+<div>
+    <label>First Name</label>
+    <input>
+</div>
+<div>
+    <label>Last Name </label>
+    <input>
+</div>
+<div>
+    <label>Email</label>
+    <input>
+</div>
+<button @onclick=@RegisterCustomer>Register</button>
+
+@code {
+
+    private async Task RegisterCustomer()
+    {
+        Console.WriteLine("button was clicked ");
+    }
+
+}

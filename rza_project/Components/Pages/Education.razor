@@ -1,0 +1,124 @@
+﻿@page "/education"
+<title>Education Page</title>
+
+<div class="education-container">
+
+    <div class="education-item">
+        <a href="/workshops">
+            <img src="workshops.jpg" alt="Workshops" class="education-image" />
+            <div class="overlay">Workshops</div>
+        </a>
+        <p>Description:.</p>
+    </div>
+
+
+    <div class="education-item">
+        <a href="/online-workshops">
+            <img src="online-workshops.jpg" alt="Online Workshops" class="education-image" />
+            <div class="overlay">Online Workshops</div>
+        </a>
+        <p>Description:.</p>
+    </div>
+
+
+    <div class="education-item">
+        <a href="/talks">
+            <img src="talks.jpg" alt="Talks" class="education-image" />
+            <div class="overlay">Talks</div>
+        </a>
+        <p>Description:</p>
+    </div>
+
+
+    <div class="education-item">
+        <a href="/school-trips">
+            <img src="school-trips.jpg" alt="School Trips" class="education-image" />
+            <div class="overlay">School Trips</div>
+        </a>
+        <p>Description: .</p>
+    </div>
+
+
+    <div class="education-item">
+        <a href="/faq">
+            <img src="faq.jpg" alt="FAQ" class="education-image" />
+            <div class="overlay">FAQ</div>
+        </a>
+        <p>Description: </p>
+    </div>
+</div>
+
+
+<div class="inquiry-section">
+    <h2>Leave an Inquiry?</h2>
+    <a href="contact">Contact Us!</a>
+</div>
+
+<style>
+    .education-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin: 20px auto;
+        max-width: 1200px;
+    }
+
+    .education-item {
+        width: 20%;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+        .education-item img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .education-item:hover img {
+            transform: scale(1.1);
+        }
+
+    .overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+        text-align: center;
+        padding: 10px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .education-item:hover .overlay {
+        opacity: 1;
+    }
+
+    .inquiry-section {
+        margin-top: 30px;
+        text-align: center;
+    }
+
+        .inquiry-section form {
+            display: inline-block;
+            text-align: left;
+        }
+
+        .inquiry-section button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+            .inquiry-section button:hover {
+                background-color: #45a049;
+            }
+</style>
+
+@code {
+
+}
