@@ -1,6 +1,53 @@
 ﻿@page "/login"
-<h3>Login</h3>
+@using rza_project.Models
+@inject rza_project.Services.CustomerService CustomerService
+@inject NavigationManager NavigationManager
+@rendermode InteractiveServer
+
+
+<h3>Log In</h3>
+<h3>Log In</h3>
+
+<EditForm Model="newCustomer" OnValidSubmit="HandleValidSubmit" FormName="LoginForm">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div>
+        <label>Username:</label>
+        <InputText @bind-Value="newCustomer.Username" />
+    </div>
+
+    <div>
+        <label>Password:</label>
+        <InputText @bind-Value="newCustomer.Password" type="password" />
+    </div>
+
+    <button type="submit">Register</button>
+</EditForm>
 
 @code {
+    private Customer newCustomer = new Customer();
+    private string password;
 
+    #region Hidden
+    // Code for hidden region goes here
+    #endregion
+
+    private async Task HandleValidSubmit()
+    {
+        newCustomer.Password = password;
+        newCustomer = await CustomerService.LogIn(newCustomer);
+        if (newCustomer == null)
+        {
+            Console.WriteLine("could not log in");
+        }
+        else
+        {
+            #region Hidden
+            // Additional hidden code goes here
+            #endregion
+            NavigationManager.NavigateTo("/account");
+        }
+    }
 }
+

@@ -1,4 +1,5 @@
-﻿using rza_project.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using rza_project.Models;
 
 namespace rza_project.Services
 {
@@ -14,6 +15,12 @@ namespace rza_project.Services
         {
             await _context.Customers.AddAsync(customer);
             await _context.SaveChangesAsync();
+        }
+        public async Task<Customer> LogIn(Customer customer)
+        {
+            return await _context.Customers.FirstOrDefaultAsync(
+                c => c.Username == customer.Username &&
+                c.Password == customer.Password);
         }
 
 

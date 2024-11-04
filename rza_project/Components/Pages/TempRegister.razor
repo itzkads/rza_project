@@ -5,30 +5,32 @@
 @rendermode InteractiveServer
 <div>
     <label>Username</label>
-    <input>
+    <input @bind=newCustomer.Username>
 </div>
 <div>
     <label>Password</label>
-    <input>
+    <input @bind=newCustomer.Password>
 </div>
 <div>
     <label>First Name</label>
-    <input>
+    <input @bind=newCustomer.FirstName>
 </div>
 <div>
     <label>Last Name </label>
-    <input>
+    <input @bind=newCustomer.LasttName>
 </div>
 <div>
     <label>Email</label>
-    <input>
+    <input @bind=newCustomer.Email>
 </div>
 <button @onclick=@RegisterCustomer>Register</button>
 
 @code {
+    private Customer newCustomer = new Customer();
 
     private async Task RegisterCustomer()
     {
+        await CustomerService.AddCustomerAsync(newCustomer);
         Console.WriteLine("button was clicked ");
     }
 
