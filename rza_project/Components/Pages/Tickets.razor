@@ -1,0 +1,62 @@
+﻿@using rza_project.Models
+@using rza_project.Services
+@using rza_project.Utilities
+@inject AttractionService AttractionService
+@inject NavigationManager NavigationManager
+@inject UserSession UserSession
+
+@rendermode InteractiveServer
+
+@page "/tickets"
+
+<h3>Tickets</h3>
+@if (attractions != null)
+{
+    @foreach (Attraction attraction in attractions)
+    {
+        <div>
+            @attraction.Name: £@attraction.Price
+            <button @onclick= "@(e => AddTicket(attraction.AttractionId))"> Add to Basket</button>
+
+        </div>
+    }
+    <button>Book Now</button>
+}
+else
+{
+    <div>No Attraction</div>
+}
+
+
+@code {
+    List<Attraction> attractions;
+    List<Ticket> tickets;
+    DateOnly ticketDate;
+    Ticketbooking newTicketbooking;
+    protected override async Task OnInitializedAsync()
+    {
+        if (UserSession.UserId == null || UserSession.UserId == 0)
+        {
+            attractions = await AttractionService.GetAttractionsAsync();
+            tickets = new List<Ticket>();
+            newTicketbooking = new Ticketbooking();
+        }
+        else
+        {
+            Console.WriteLine("No Attractions");
+        }
+
+    }
+    private void AddTicket(int attractionId)
+    {
+        Ticket newTicket = new Ticket();
+        newTicket.AttractionId = attractionId;
+        tickets.Add(newTicket);
+    }
+    private async Task BookTickets()
+    {
+
+
+    }
+
+}

@@ -5,17 +5,15 @@ namespace rza_project.Models;
 
 public partial class Ticketbooking
 {
-    public int BookingId { get; set; }
+    public int TicketbookingId { get; set; }
 
-    public int TicketId { get; set; }
+    public int CustomerId { get; set; }
 
-    public DateOnly VisitDate { get; set; }
+    public DateOnly Date { get; set; }
 
-    public decimal TicketPrice { get; set; }
+    public DateOnly DateBooked { get; set; }
 
-    public DateOnly BookingDate { get; set; }
+    public virtual Customer Customer { get; set; } = null!;
 
-    public int NoOfGuests { get; set; }
-
-    public int LoyaltyPoints { get; set; }
+    public virtual ICollection<Ticket> Tickets { get; set; } = new List<Ticket>();
 }

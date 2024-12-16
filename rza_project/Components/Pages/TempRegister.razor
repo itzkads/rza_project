@@ -3,27 +3,107 @@
 @using rza_project.Models
 @inject CustomerService CustomerService
 @rendermode InteractiveServer
-<div>
-    <label>Username</label>
-    <input @bind=newCustomer.Username>
+@inject NavigationManager NavigationManager
+
+<style>
+    .register-form {
+        width: 300px;
+        padding: 20px;
+        margin: auto;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        font-family: Arial, sans-serif;
+    }
+
+        .register-form h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .register-form label {
+            font-size: 14px;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .register-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .register-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+            .register-form button:hover {
+                background-color: #218838;
+            }
+
+        .register-form .login-link {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+            .register-form .login-link a {
+                color: #007bff;
+                text-decoration: none;
+            }
+
+                .register-form .login-link a:hover {
+                    text-decoration: underline;
+                }
+</style>
+
+<div class="register-form">
+    <h2>Register</h2>
+    <div>
+        <label>Username</label>
+        <input @bind="newCustomer.Username" placeholder="Enter a username..." />
+    </div>
+    <div>
+        <label>Password</label>
+        <input type="password" @bind="newCustomer.Password" placeholder="Enter your password..." />
+    </div>
+    <div>
+        <label>First Name</label>
+        <input @bind="newCustomer.FirstName" placeholder="Enter your first name..." />
+    </div>
+    <div>
+        <label>Last Name</label>
+        <input @bind="newCustomer.LasttName" placeholder="Enter your last name..." />
+    </div>
+    <div>
+        <label>Email</label>
+        <input type="email" @bind="newCustomer.Email" placeholder="Enter your email address..." />
+    </div>
+    <div>
+        <label>Post Code</label>
+        <input type="Postcode" @bind="newCustomer.Postcode" placeholder="Enter your Post Code..." />
+    </div>
+    <div>
+        <label>Number</label>
+        <input  @bind="newCustomer.PhoneNumber" placeholder="Enter your Number..." />
+    </div>
+    <button @onclick="RegisterCustomer">Register</button>
+
+    <div class="login-link">
+        Already have an account? <a href="/login">Sign in.</a>
+    </div>
 </div>
-<div>
-    <label>Password</label>
-    <input @bind=newCustomer.Password>
-</div>
-<div>
-    <label>First Name</label>
-    <input @bind=newCustomer.FirstName>
-</div>
-<div>
-    <label>Last Name </label>
-    <input @bind=newCustomer.LasttName>
-</div>
-<div>
-    <label>Email</label>
-    <input @bind=newCustomer.Email>
-</div>
-<button @onclick=@RegisterCustomer>Register</button>
 
 @code {
     private Customer newCustomer = new Customer();
@@ -31,7 +111,7 @@
     private async Task RegisterCustomer()
     {
         await CustomerService.AddCustomerAsync(newCustomer);
-        Console.WriteLine("button was clicked ");
+        Console.WriteLine("button was clicked");
+        NavigationManager.NavigateTo("/");
     }
-
 }

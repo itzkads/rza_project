@@ -5,13 +5,11 @@ namespace rza_project.Models;
 
 public partial class Attraction
 {
-    public string ExhibitSchedule { get; set; } = null!;
-
-    public string Availability { get; set; } = null!;
-
     public int AttractionId { get; set; }
 
-    public string AttractionName { get; set; } = null!;
+    public string? Name { get; set; }
 
-    public string Description { get; set; } = null!;
+    public float? Price { get; set; }
+
+    public virtual ICollection<Ticket> Tickets { get; set; } = new List<Ticket>();
 }

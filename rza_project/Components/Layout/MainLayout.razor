@@ -104,7 +104,131 @@
         .active, .dot:hover {
             background-color: #717171;
         }
+    /* Membership Section */
+    .membership-section {
+        text-align: center;
+        padding: 40px;
+    }
+
+    .membership-title {
+        font-size: 2em;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .highlight {
+        color: #32b674; /* Green color for 'Zoofari' */
+    }
+
+    .special-pricing-button {
+        background-color: #32b674;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1em;
+        border-radius: 5px;
+        margin-bottom: 30px;
+        cursor: pointer;
+    }
+
+        .special-pricing-button:hover {
+            background-color: #28a65d;
+        }
+
+    .membership-cards {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .membership-card {
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 20px;
+        border-radius: 10px;
+        width: 250px;
+        position: relative;
+        text-align: left;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        background-blend-mode: overlay;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+        .membership-card:nth-child(1) {
+            background-image: url('lemur.jpg'); /* Replace with your image URL */
+        }
+
+        .membership-card:nth-child(2) {
+            background-image: url('cat.jpg'); /* Replace with your image URL */
+        }
+
+        .membership-card:nth-child(3) {
+            background-image: url('giraffe.jpg'); /* Replace with your image URL */
+        }
+
+    .card-header {
+        font-size: 2em;
+        color: #32b674;
+        font-weight: bold;
+    }
+
+    .card-title {
+        font-size: 1.5em;
+        /* Dropdown container */
+        .dropdown
+    }
+
+    {
+        position: relative;
+        display: inline-block;
+    }
+
+    /* Dropdown button (Pages link) */
+    .dropdown-button {
+        font-size: 20px;
+        color: darkslategrey;
+        text-decoration: none;
+        cursor: pointer;
+        padding: 10px;
+    }
+
+    /* Dropdown content */
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: white;
+        min-width: 160px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        font-size: 16px;
+    }
+
+        /* Dropdown links */
+        .dropdown-content a {
+            color: darkslategrey;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            background-color: white;
+        }
+
+            .dropdown-content a:hover {
+                background-color: #32b674; /* Green hover effect */
+                color: white;
+            }
+
+    /* Show the dropdown on hover */
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+
 </style>
+
 
 <main>
     <div class="top-row px-4 top">
@@ -112,13 +236,26 @@
         <a href="/hotel">Hotel</a>
         <a href="/experience">Experience</a>
         <a href="/zoo">Zoo</a>
+                    <!-- Dropdown for Pages -->
+        <div class="dropdown">
+            <a class="dropdown-button">Pages</a>
+                <div class="dropdown-content">
+                    <a href="/our-animals">Our Animals</a>
+                    <a href="/membership">Membership</a>
+                    <a href="/visiting-hours">Visiting Hours</a>
+                    <a href="/testimonial">Testimonial</a>
+
+                </div>
+            </div>
         <a href="/contact">Contact Us</a>
         <a href="/education">Education</a>
         <input type="text" class="search-bar" placeholder="Search..." />
         <a href="/login" class="login-button">Login</a>
         <a href="/basket" class="basket-button">Basket</a>
-       
-    </div>
+           
+
+
+        </div>
     <article class="content px-4">
         @Body
     </article>

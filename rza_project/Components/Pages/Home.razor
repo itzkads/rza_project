@@ -3,18 +3,64 @@
 <PageTitle>Riget Zoo Adventures</PageTitle>
 
 <h1>Welcome to Riget Zoo </h1>
+<section class="membership-section">
+    <h2 class="membership-title">You Can Be A Proud Member Of <span class="highlight">Ridge Zoo</span></h2>
+    <button class="special-pricing-button">Special Pricing</button>
+
+    <div class="membership-cards">
+        <!-- Card 1 -->
+        <div class="membership-card">
+            <div class="card-header">01</div>
+            <h3 class="card-title">Popular</h3>
+            <p class="card-price">$99.00</p>
+            <ul class="card-features">
+                <li>10% discount</li>
+                <li>2 adult and 2 child</li>
+                <li>Free animal exhibition</li>
+            </ul>
+            <button class="get-started-button">Get Started</button>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="membership-card">
+            <div class="card-header">02</div>
+            <h3 class="card-title">Standard</h3>
+            <p class="card-price">$149.00</p>
+            <ul class="card-features">
+                <li>15% discount</li>
+                <li>4 adult and 4 child</li>
+                <li>Free animal exhibition</li>
+            </ul>
+            <button class="get-started-button">Get Started</button>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="membership-card">
+            <div class="card-header">03</div>
+            <h3 class="card-title">Premium</h3>
+            <p class="card-price">$199.00</p>
+            <ul class="card-features">
+                <li>20% discount</li>
+                <li>6 adult and 6 child</li>
+                <li>Free animal exhibition</li>
+            </ul>
+            <button class="get-started-button">Get Started</button>
+        </div>
+    </div>
+</section>
+
 
 <div class="slideshow-container">
     <div class="mySlides fade">
-        <img src="image1.jpg" style="width:100%">
+        <img src="/images/image1.png">
     </div>
 
     <div class="mySlides fade">
-        <img src="image2.jpg" style="width:100%">
+        <img src="/images/image1.png">
     </div>
 
     <div class="mySlides fade">
-        <img src="/image3.jpg" style="width:100%">
+        <img src="/images/image1.png">
     </div>
     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
     <a class="next" onclick="plusSlides(1)">&#10095;</a>
@@ -53,6 +99,6 @@ function showSlides() {
   slides[slideIndex - 1].style.display = "block";
   dots[slideIndex - 1].className += " active";
   
-  setTimeout(showSlides, 5000); =
+  setTimeout(showSlides, 5000); 
 }
 </script>

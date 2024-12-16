@@ -2,6 +2,8 @@ using Microsoft.EntityFrameworkCore;
 using rza_project.Components;
 using rza_project.Models;
 using rza_project.Services;
+using rza_project.Utilities;
+
 
 namespace rza_project
 {
@@ -19,6 +21,11 @@ namespace rza_project
             new MySqlServerVersion(new Version(8, 0, 29))));
 
             builder.Services.AddScoped<CustomerService>();
+            builder.Services.AddScoped<Roombooking>();
+            builder.Services.AddScoped<AttractionService>();
+            builder.Services.AddScoped<TicketbookingService>();
+            builder.Services.AddScoped<TicketService>();
+            builder.Services.AddSingleton<UserSession>();
 
             var app = builder.Build();
 

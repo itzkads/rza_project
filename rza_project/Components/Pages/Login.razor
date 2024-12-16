@@ -1,53 +1,112 @@
 ﻿@page "/login"
 @using rza_project.Models
+@using rza_project.Utilities
 @inject rza_project.Services.CustomerService CustomerService
 @inject NavigationManager NavigationManager
+@inject UserSession UserSession
 @rendermode InteractiveServer
 
+<style>
+    .login-form {
+    width: 300px;
+    padding: 20px;
+    margin: auto;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    }
 
-<h3>Log In</h3>
-<h3>Log In</h3>
+    .login-form h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+    }
 
-<EditForm Model="newCustomer" OnValidSubmit="HandleValidSubmit" FormName="LoginForm">
-    <DataAnnotationsValidator />
-    <ValidationSummary />
+    .login-form label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: block;
+    }
 
-    <div>
-        <label>Username:</label>
-        <InputText @bind-Value="newCustomer.Username" />
+    .login-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    }
+
+    .login-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    }
+
+    .login-form button:hover {
+    background-color: #218838;
+    }
+
+    .login-form .register-link {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 14px;
+    }
+
+    .login-form .register-link a {
+    color: #007bff;
+    text-decoration: none;
+    }
+
+    .login-form .register-link a:hover {
+    text-decoration: underline;
+    }
+</style>
+<div class="login-form">
+    <h2>Log In</h2>
+
+    <EditForm Model="newCustomer" OnValidSubmit="HandleValidSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div>
+            <label>Username</label>
+            <InputText @bind-Value="newCustomer.Username" placeholder="Enter your username..." />
+        </div>
+
+        <div>
+            <label>Password</label>
+            <InputText @bind-Value="newCustomer.Password" type="password" placeholder="Enter your password..." />
+        </div>
+
+        <button type="submit">Log In</button>
+    </EditForm>
+
+    <div class="register-link">
+        Don't have an account? <a href="/tr">Create one.</a>
     </div>
-
-    <div>
-        <label>Password:</label>
-        <InputText @bind-Value="newCustomer.Password" type="password" />
-    </div>
-
-    <button type="submit">Register</button>
-</EditForm>
+</div>
 
 @code {
     private Customer newCustomer = new Customer();
-    private string password;
-
-    #region Hidden
-    // Code for hidden region goes here
-    #endregion
 
     private async Task HandleValidSubmit()
-    {
-        newCustomer.Password = password;
+    { 
         newCustomer = await CustomerService.LogIn(newCustomer);
         if (newCustomer == null)
         {
-            Console.WriteLine("could not log in");
+            Console.WriteLine("Could not log in");
         }
         else
         {
-            #region Hidden
-            // Additional hidden code goes here
-            #endregion
-            NavigationManager.NavigateTo("/account");
+            UserSession.UserId = newCustomer.CustomerId;
+            NavigationManager.NavigateTo("/");
         }
     }
 }
-
