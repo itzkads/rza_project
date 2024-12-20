@@ -231,33 +231,124 @@
 
 
 <main>
+
+    <article class="content px-4">
+        <style>
+    html, body {
+        height: 100%;
+        margin: 0;
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        font-family: Arial, Futura;
+        font-size: 20px;
+        color: darkslategrey;
+        background-color: pink;
+        text-align: center;
+    }
+
+    .content {
+        flex: 1; /* Pushes the footer to the bottom */
+    }
+
+    /* Footer Container */
+    .bottom-bar {
+        background-color: #b6d51d; /* Light green background */
+        padding: 20px 10px;
+        text-align: center;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        color: #000;
+        width: 100%;
+    }
+
+        /* Navigation Links */
+        .bottom-bar a {
+            color: #000;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+            .bottom-bar a:hover {
+                text-decoration: underline;
+            }
+
+    /* Logos Container */
+    .logos-container {
+        margin: 20px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+        .logos-container img {
+            height: 40px;
+            width: auto;
+        }
+
+    /* Copyright Section */
+    .copyright {
+        margin-top: 10px;
+        font-size: 12px;
+    }
+</style>
+
+<main>
     <div class="top-row px-4 top">
         <a href="/">Home</a>
         <a href="/hotel">Hotel</a>
         <a href="/experience">Experience</a>
         <a href="/zoo">Zoo</a>
-                    <!-- Dropdown for Pages -->
+        <!-- Dropdown for Pages -->
         <div class="dropdown">
             <a class="dropdown-button">Pages</a>
-                <div class="dropdown-content">
-                    <a href="/our-animals">Our Animals</a>
-                    <a href="/membership">Membership</a>
-                    <a href="/visiting-hours">Visiting Hours</a>
-                    <a href="/testimonial">Testimonial</a>
-
-                </div>
+            <div class="dropdown-content">
+                <a href="/our-animals">Our Animals</a>
+                <a href="/membership">Membership</a>
+                <a href="/visiting-hours">Visiting Hours</a>
+                <a href="/testimonial">Testimonial</a>
             </div>
+        </div>
         <a href="/contact">Contact Us</a>
         <a href="/education">Education</a>
         <input type="text" class="search-bar" placeholder="Search..." />
         <a href="/login" class="login-button">Login</a>
         <a href="/basket" class="basket-button">Basket</a>
-           
+    </div>
 
-
-        </div>
     <article class="content px-4">
         @Body
+    </article>
+
+    <div class="bottom-bar">
+        <div class="links">
+            <a href="/accessibility">Accessibility</a> |
+            <a href="/privacy">Privacy Statement</a> |
+            <a href="/terms">Terms and Conditions</a> |
+            <a href="/contact">Contact Us</a>
+        </div>
+        <div class="logos-container">
+            <img src="~/image1.png" alt="1">
+            <img src="~/image2.png" alt="2">
+            <img src="~/image3.png" alt="3">
+        </div>
+        <div class="copyright">
+            Copyright © Leeds City Council.
+        </div>
+    </div>
+</main>
+
+<div id="blazor-error-ui">
+    An unhandled error has occurred.
+    <a href="" class="reload">Reload</a>
+    <a class="dismiss">🗙</a>
+</div>
+
     </article>
 </main>
 
